@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solver xmlns="https://www.optaplanner.org/xsd/solver"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://www.optaplanner.org/xsd/solver
+        https://www.optaplanner.org/xsd/solver/solver.xsd">
+
+    <solutionClass>com.example.scheduler.domain.Schedule</solutionClass>
+    <entityClass>com.example.scheduler.domain.Job</entityClass>
+
+    <scoreDirectorFactory>
+        <constraintProviderClass>
+            com.example.scheduler.domain.ScheduleConstraintProvider
+        </constraintProviderClass>
+    </scoreDirectorFactory>
+
+    <!-- Termination -->
+    <termination>
+        <secondsSpentLimit>5</secondsSpentLimit>
+    </termination>
+
+    <!-- Initial solution -->
+    <constructionHeuristic>
+        <constructionHeuristicType>FIRST_FIT</constructionHeuristicType>
+    </constructionHeuristic>
+
+    <!-- Simulated Annealing -->
+    <localSearch>
+        <acceptor>
+            <simulatedAnnealingStartingTemperature>1hard/50soft</simulatedAnnealingStartingTemperature>
+        </acceptor>
+
+        <forager>
+            <acceptedCountLimit>500</acceptedCountLimit>
+        </forager>
+    </localSearch>
+
+</solver>

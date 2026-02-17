@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solver xmlns="https://www.optaplanner.org/xsd/solver"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://www.optaplanner.org/xsd/solver
+        https://www.optaplanner.org/xsd/solver/solver.xsd">
+
+    <solutionClass>com.example.scheduler.domain.Schedule</solutionClass>
+    <entityClass>com.example.scheduler.domain.Job</entityClass>
+
+    <scoreDirectorFactory>
+        <constraintProviderClass>
+            com.example.scheduler.domain.ScheduleConstraintProvider
+        </constraintProviderClass>
+    </scoreDirectorFactory>
+
+    <!-- Termination condition -->
+    <termination>
+        <secondsSpentLimit>5</secondsSpentLimit>
+    </termination>
+
+</solver>

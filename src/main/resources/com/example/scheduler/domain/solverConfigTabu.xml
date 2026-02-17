@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solver xmlns="https://www.optaplanner.org/xsd/solver"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://www.optaplanner.org/xsd/solver
+        https://www.optaplanner.org/xsd/solver/solver.xsd">
+
+    <solutionClass>com.example.scheduler.domain.Schedule</solutionClass>
+    <entityClass>com.example.scheduler.domain.Job</entityClass>
+
+    <scoreDirectorFactory>
+        <constraintProviderClass>
+            com.example.scheduler.domain.ScheduleConstraintProvider
+        </constraintProviderClass>
+    </scoreDirectorFactory>
+
+    <!-- Global termination for the entire solver -->
+    <termination>
+        <secondsSpentLimit>5</secondsSpentLimit>
+    </termination>
+
+    <!-- Phase 1: Build initial solution with Construction Heuristic -->
+    <constructionHeuristic>
+        <constructionHeuristicType>FIRST_FIT</constructionHeuristicType>
+    </constructionHeuristic>
+
+    <!-- Phase 2: Improve with Tabu Search -->
+    <localSearch>
+        <!-- Tabu Search configuration -->
+        <acceptor>
+            <entityTabuSize>7</entityTabuSize>
+        </acceptor>
+
+        <!-- Forager: how many moves to consider -->
+        <forager>
+            <acceptedCountLimit>1000</acceptedCountLimit>
+        </forager>
+    </localSearch>
+
+</solver>
