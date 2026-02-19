@@ -18,6 +18,12 @@ mvn spring-boot:run
 Vai palaist klasē:
 SchedulerApplication.java
 
-## Pēc palaišanas:
+##Projekta palaišana, izmantojot Docker:
+
+docker pull skdev00/job-sheduling-timefold:1.1
+
+docker run -p 8080:8080 skdev00/job-sheduling-timefold:1.1
+
+## Sistēmas tīmekļa saskarne, pieejama lokāli:
 
 http://localhost:8080/piemeri.html
