@@ -18,7 +18,7 @@ mvn spring-boot:run
 Vai palaist klasē:
 SchedulerApplication.java
 
-##Projekta palaišana, izmantojot Docker:
+## Projekta palaišana, izmantojot Docker:
 
 docker pull skdev00/job-sheduling-timefold:1.1
 
